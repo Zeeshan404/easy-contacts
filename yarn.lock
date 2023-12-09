@@ -1185,6 +1185,11 @@
   dependencies:
     "@types/hammerjs" "^2.0.36"
 
+"@expo-google-fonts/noto-nastaliq-urdu@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/noto-nastaliq-urdu/-/noto-nastaliq-urdu-0.2.3.tgz#8204baa6132c1b13da697b54a2b190dc5348fb2b"
+  integrity sha512-D8O34027gGWMsca+t4QFy+dCPXNkWuycMhxQlyPpqUa960FjRB9AvNTUImseXLWp9dK6Hok7ruv4Y0s2fsKV5w==
+
 "@expo/bunyan@4.0.0", "@expo/bunyan@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@expo/bunyan/-/bunyan-4.0.0.tgz#be0c1de943c7987a9fbd309ea0b1acd605890c7b"
