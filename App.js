@@ -18,9 +18,7 @@ const fonts = {
 
 export default function App() {
 
-  const [fontLoaded, fontError] = useFonts({
-    ...fonts
-  })
+  const [fontLoaded, fontError] = useFonts({ ...fonts })
 
   if (!fontLoaded) {
     return (
@@ -47,9 +45,7 @@ export default function App() {
             fontFamily: 'B2'
           }}
         >
-          asdasdasdasd
           لکھن
-
         </Text>
 
       </View>
@@ -65,3 +61,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+
+// {
+//   "compilerOptions": {
+//       "baseUrl": ".",
+//       "paths": {
+//           "locales/*": [
+//               "./src/locales/*"
+//           ],
+//       }
+//   }
+// }
