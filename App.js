@@ -1,26 +1,15 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
-import {
-  useFonts,
-  NotoNastaliqUrdu_400Regular,
-  NotoNastaliqUrdu_500Medium,
-  NotoNastaliqUrdu_600SemiBold,
-  NotoNastaliqUrdu_700Bold,
-} from '@expo-google-fonts/noto-nastaliq-urdu';
-
-const fonts = {
-  'R': NotoNastaliqUrdu_400Regular,
-  'M': NotoNastaliqUrdu_500Medium,
-  'B2': NotoNastaliqUrdu_600SemiBold,
-  'B1': NotoNastaliqUrdu_700Bold,
-}
+import { _T } from './src/locales';
+import useLoadFonts from './src/hooks/useLoadFonts';
+import { FontFamily } from './src/constants';
 
 export default function App() {
 
-  const [fontLoaded, fontError] = useFonts({ ...fonts })
+  const { loading, error } = useLoadFonts()
 
-  if (!fontLoaded) {
+  if (!loading) {
     return (
       <View style={{ ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center' }}>
         <ActivityIndicator
@@ -36,17 +25,12 @@ export default function App() {
       <View style={{
         flex: 1, backgroundColor: 'tan',
         justifyContent: 'center',
-        alignItemsL: 'center',
+        alignItems: 'center',
       }}>
 
-        <Text
-          style={{
-            fontSize: 40,
-            fontFamily: 'B2'
-          }}
-        >
-          لکھن
-        </Text>
+        <View style={{ height: 150, backgroundColor: 'teal', }}>
+          <Text style={{ fontSize: 30, fontFamily: FontFamily.bold1, backgroundColor: 'red' }} > {_T("welcome")} </Text>
+        </View>
 
       </View>
     </GestureHandlerRootView>
