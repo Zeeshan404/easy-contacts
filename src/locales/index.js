@@ -1,13 +1,15 @@
 import { getLocales } from 'expo-localization';
 import { I18n } from 'i18n-js';
+import en from './translations/en.json'
+import ur from './translations/ur.json'
 
 const translations = {
-    en: { welcome: 'Hello' },
-    ur: { welcome: 'خوش آمدید' },
+    en,
+    ur
 };
 const i18n = new I18n(translations);
 
-i18n.locale = 'ur';
+i18n.locale = 'en';
 // i18n.locale = 'en';
 
 // // Set the locale once at the beginning of your app.
