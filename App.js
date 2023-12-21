@@ -1,42 +1,23 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
-import { _T } from './src/locales';
 import useLoadFonts from './src/hooks/useLoadFonts';
 import { FontFamily } from './src/constants';
+// import { NavigationContainer } from '@react-navigation/native';
+import OverlayLoader from './src/components/OverlayLoader';
 
 export default function App() {
-
   const { loading, error } = useLoadFonts()
 
-  if (!loading) {
-    return (
-      <View style={{ ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center' }}>
-        <ActivityIndicator
-          color="black"
-          size="large"
-        />
-      </View>
-    )
-  }
+  if (!loading) return (<OverlayLoader />)
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <View style={{ flex: 1, backgroundColor: 'tan', justifyContent: 'center', padding: 10 }}>
-
-      </View>
+      {/* <NavigationContainer> */}
+       
+      {/* </NavigationContainer> */}
     </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
 
 // {
 //   "compilerOptions": {
