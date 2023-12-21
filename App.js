@@ -1,7 +1,7 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import useLoadFonts from './src/hooks/useLoadFonts';
-import { FontFamily } from './src/constants';
+import { CombinedDarkTheme, CombinedDefaultTheme, FontFamily } from './src/constants';
 import OverlayLoader from './src/components/OverlayLoader';
 import { PaperProvider } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
@@ -29,10 +29,14 @@ export default function App() {
 
   if (!loading) return (<OverlayLoader />)
 
+
+  const isDarkTheme = false
+  const currentTheme = isDarkTheme ? CombinedDarkTheme : CombinedDefaultTheme
+
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <PaperProvider>
-        <NavigationContainer>
+      <PaperProvider theme={currentTheme}>
+        <NavigationContainer theme={currentTheme}>
           <Stack.Navigator>
             <Stack.Screen name="Home" component={HomeScreen} />
             <Stack.Screen name="Details" component={DetailsScreen} />
