@@ -2,8 +2,27 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
 import useLoadFonts from './src/hooks/useLoadFonts';
 import { FontFamily } from './src/constants';
-// import { NavigationContainer } from '@react-navigation/native';
 import OverlayLoader from './src/components/OverlayLoader';
+import { PaperProvider } from 'react-native-paper';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+const Stack = createNativeStackNavigator();
+
+function HomeScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Home Screen</Text>
+    </View>
+  );
+}
+
+function DetailsScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Text>Details Screen</Text>
+    </View>
+  );
+}
 
 export default function App() {
   const { loading, error } = useLoadFonts()
@@ -12,9 +31,14 @@ export default function App() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      {/* <NavigationContainer> */}
-       
-      {/* </NavigationContainer> */}
+      <PaperProvider>
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen name="Details" component={DetailsScreen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </PaperProvider>
     </GestureHandlerRootView>
   );
 }
@@ -29,18 +53,6 @@ export default function App() {
 //       }
 //   }
 // }
-
-const ContactListTile = () => {
-  return (
-    <View style={{ height: 100, backgroundColor: 'pink', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10 }}>
-      <View style={{ flex: 1, flexDirection: 'row' }}>
-        <View style={{ height: 50, width: 50, borderRadius: 25, backgroundColor: 'white' }} />
-        <Text style={{ fontFamily: FontFamily.medium, fontSize: 15, backgroundColor: 'red' }}> {_T("name")}</Text>
-      </View>
-      <Text style={{ fontSize: 20, }}>{`>`}</Text>
-    </View>
-  )
-}
 
 // import React, { useState } from 'react'
 // import { GestureHandlerRootView } from 'react-native-gesture-handler';
