@@ -1,18 +1,20 @@
-import {
-    useFonts,
-    NotoNastaliqUrdu_400Regular,
-    NotoNastaliqUrdu_500Medium,
-    NotoNastaliqUrdu_600SemiBold,
-    NotoNastaliqUrdu_700Bold,
-} from '@expo-google-fonts/noto-nastaliq-urdu';
+
+import { useFonts } from 'expo-font';
+import { arabicFonts, englishFonts, urduFonts } from '../constants';
 
 const useLoadFonts = () => {
-    const [loading, error] = useFonts({
-        'regular': NotoNastaliqUrdu_400Regular,
-        'medium': NotoNastaliqUrdu_500Medium,
-        'bold2': NotoNastaliqUrdu_600SemiBold,
-        'bold1': NotoNastaliqUrdu_700Bold,
-    })
+
+    const getFonts = ()=>{
+        const allFonts = { ...arabicFonts, ...englishFonts, ...urduFonts  }
+        const fontsToLoad = {}
+        Object.keys(allFonts).forEach(key => {
+            fontsToLoad[key] = allFonts[key].asset;
+        });
+        return fontsToLoad
+    }
+
+    const [loading, error] = useFonts(getFonts())
+
     return {
         loading, 
         error

@@ -1,48 +1,201 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { ActivityIndicator, StyleSheet, Text, View } from 'react-native';
+import { ActivityIndicator, I18nManager, ScrollView, StyleSheet, View } from 'react-native';
 import useLoadFonts from './src/hooks/useLoadFonts';
-import { CombinedDarkTheme, CombinedDefaultTheme, FontFamily } from './src/constants';
+import { CombinedDarkTheme, CombinedDefaultTheme, FontFamily, SupportedLanguages, arabicFontVariants, englishFontVariants, nF } from './src/constants';
 import OverlayLoader from './src/components/OverlayLoader';
-import { PaperProvider } from 'react-native-paper';
+import { Button, Divider, PaperProvider, Text, configureFonts, useTheme } from 'react-native-paper';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { _T, i18n, isLocaleRTL } from './src/locales';
+import { useContext, useEffect, useState } from 'react';
+import LocalizationContext from './src/context/localization';
+import * as Updates from 'expo-updates';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 const Stack = createNativeStackNavigator();
 
-function HomeScreen() {
+function HomeScreen(props) {
+  const { fonts } = useTheme()
+  const { locale, rtl, onChangeLanguage } = useContext(LocalizationContext) || {}
+
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
+    <View style={{ flex: 1, paddingHorizontal:10 }}>
+      <View 
+        style={{marginBottom:20}}
+      />
+      {
+        Object.keys(SupportedLanguages).map((item) => {
+          return (
+            <Button key={item} style={{ marginBottom: 15, width: '100%' }} mode="elevated" onPress={() => { onChangeLanguage(item) }}>
+              <Text variant='black'>
+              {SupportedLanguages[item].nativeName}
+              </Text>
+            </Button>
+          )
+        })
+      }
+
+      {/* <Text style={{fontSize:25}} variant='black'>{_T("name")}</Text>
+      <Text style={{fontSize:25}} variant='bold'>{_T("name")}</Text>
+      <Text style={{fontSize:25}} variant='medium'>{_T("name")}</Text>
+      <Text style={{fontSize:25}} variant='regular'>{_T("name")}</Text>
+      <Text style={{fontSize:25}} variant='thin'>{_T("name")}</Text> */}
+      
+    <ScrollView showsVerticalScrollIndicator={false}>
+    <Text style={{fontSize:30, fontFamily:'eBlack', borderWidth:1}} >{_T("name1")}</Text>
+      <Text style={{fontSize:30, fontFamily:'eBold', borderWidth:1}} >{_T("name1")}</Text>
+      <Text style={{fontSize:30, fontFamily:'eMedium', borderWidth:1}} >{_T("name1")}</Text>
+      <Text style={{fontSize:30, fontFamily:'eRegular', borderWidth:1}} >{_T("name1")}</Text>
+      <Text style={{fontSize:30, fontFamily:'eThin', borderWidth:1}} >{_T("name1")}</Text>
+
+      <Divider style={{height:10}}/>
+      
+      <Text style={{fontSize:30, fontFamily:'aBlack', borderWidth:1}} >{_T("name1")}</Text>
+      <Text style={{fontSize:30, fontFamily:'aBold', borderWidth:1}} >{_T("name1")}</Text>
+      <Text style={{fontSize:30, fontFamily:'aMedium', borderWidth:1}} >{_T("name1")}</Text>
+      <Text style={{fontSize:30, fontFamily:'aRegular', borderWidth:1}} >{_T("name1")}</Text>
+      <Text style={{fontSize:30, fontFamily:'aThin', borderWidth:1}} >{_T("name1")}</Text>
+
+      <Divider style={{height:10}}/>
+
+      <Text style={{fontSize:30, fontFamily:'uBlack', borderWidth:1}} >{_T("name1")}</Text>
+      <Text style={{fontSize:30, fontFamily:'uBold', borderWidth:1}} >{_T("name1")}</Text>
+      <Text style={{fontSize:30, fontFamily:'uMedium', borderWidth:1}} >{_T("name1")}</Text>
+      <Text style={{fontSize:30, fontFamily:'uRegular', borderWidth:1}} >{_T("name1")}</Text>
+      <Text style={{fontSize:30, fontFamily:'uThin', borderWidth:1}} >{_T("name1")}</Text>
+      <Divider style={{height:10}}/>
+
+    </ScrollView>
+
+      {/* <Button onPress={()=>{}} mode="elevated" contentStyle={{ height:100, justifyContent:'center'}} style={{margin:20}}>
+       <Text variant='black' style={{fontSize:nF(20), backgroundColor:'red', lineHeight:50 }}>
+         {_T("name")}
+        </Text>
+      </Button> */}
+      {/* <Text>Context - {locale} - {rtl ? "RTL" : "LTR"}</Text>
+      <Text>i18n - {i18n.locale} </Text>
+      <Text>{'Native'} - {I18nManager.isRTL ? "RTL" : "LTR"}</Text>
+      <Text onPress={()=>{props.navigation.navigate('Details')}} style={{backgroundColor:'red'}} variant="displayLarge">{_T("welcome")}</Text> */}
+      {/* <Text style={{ fontSize: 18,fontFamily: urduFonts.uRegular, textAlign:'justify' }}>{_T("welcome")}</Text> */}
+    
+      {/* <Text style={{borderWidth:1}} variant='black' >{_T("name")}</Text>
+      <Text style={{borderWidth:1}} variant='bold' >{_T("name")}</Text>
+      <Text style={{borderWidth:1}} variant='medium' >{_T("name")}</Text>
+      <Text style={{borderWidth:1}} variant='regular' >{_T("name")}</Text>  */}
+      {/* 
+      <Text style={{borderWidth:1, marginBottom:1}} variant="displayLarge">{_T("welcome")}</Text>
+      <Text style={{borderWidth:1, marginBottom:1}} variant="displayMedium">{_T("welcome")}</Text>
+      <Text style={{borderWidth:1, marginBottom:1}} variant="displaySmall">{_T("welcome")}</Text>
+
+      <Text style={{borderWidth:1, marginBottom:1}} variant="headlineLarge">{_T("welcome")}</Text>
+      <Text style={{borderWidth:1, marginBottom:1}} variant="headlineMedium">{_T("welcome")}</Text>
+      <Text style={{borderWidth:1, marginBottom:1}} variant="headlineSmall">{_T("welcome")}</Text>
+
+      <Text style={{borderWidth:1, marginBottom:1}} variant="titleLarge">{_T("welcome")}</Text>
+      <Text style={{borderWidth:1, marginBottom:1}} variant="titleMedium">{_T("welcome")}</Text>
+      <Text style={{borderWidth:1, marginBottom:1}} variant="titleSmall">{_T("welcome")}</Text>
+
+      <Text style={{borderWidth:1, marginBottom:1}} variant="bodyLarge">{_T("welcome")}</Text>
+      <Text style={{borderWidth:1, marginBottom:1}} variant="bodyMedium">{_T("welcome")}</Text>
+      <Text style={{borderWidth:1, marginBottom:1}} variant="bodySmall">{_T("welcome")}</Text>
+
+      <Text style={{borderWidth:1, marginBottom:1}} variant="labelLarge">{_T("welcome")}</Text>
+      <Text style={{borderWidth:1, marginBottom:1}} variant="labelMedium">{_T("welcome")}</Text>
+      <Text style={{borderWidth:1, marginBottom:1}} variant="labelSmall">{_T("welcome")}</Text> */}
     </View>
   );
 }
 
 function DetailsScreen() {
+
+  // const { locale, rtl, onChangeLanguage } = useContext(LocalizationContext) || {}
+  
   return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Details Screen</Text>
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', padding:20 }}>
+      {/* <Text style={{ marginBottom: 20 }}>{_T("welcome")}  {SupportedLanguages[locale]?.nativeName || 'test'}</Text> */}
+      {/* <Text style={{ marginBottom: 20 }}>{locale}-{rtl ? "RTL":"LTR"}</Text> */}
+      
     </View>
   );
 }
 
 export default function App() {
   const { loading, error } = useLoadFonts()
+  const [localesInit, setLocalesInit] = useState(true)
+  const localeContext = useContext(LocalizationContext)
+  const [language, setLanguage] = useState(localeContext)
 
-  if (!loading) return (<OverlayLoader />)
+  useEffect(()=>{
+    init()
+  },[])
 
+  const init = async () => {
+    await AsyncStorage.getItem("language").then((json) => {
+      if (json != null) {
+        const value = JSON.parse(json).locale
+        i18n.locale = value
+        const shouldBeRTL = isLocaleRTL(value)
+        const langData = {
+          "locale" : value,
+          "rtl" : shouldBeRTL
+        }
+        setLanguage(langData)
+      }
+    }).finally(() => {
+      setLocalesInit(false)
+    })
+  }
+
+  const onChangeLanguage = async (value) => {
+    i18n.locale = value
+    const shouldBeRTL = isLocaleRTL(value)
+    const langData = {
+      "locale" : value,
+      "rtl" : shouldBeRTL
+    }
+    setLanguage(langData)
+    if (shouldBeRTL !== I18nManager.isRTL) {
+      I18nManager.allowRTL(shouldBeRTL);
+      I18nManager.forceRTL(shouldBeRTL);
+    }
+    await AsyncStorage.setItem("language", JSON.stringify(langData))
+    Updates.reloadAsync();
+  }
 
   const isDarkTheme = false
   const currentTheme = isDarkTheme ? CombinedDarkTheme : CombinedDefaultTheme
+  const fontConfigs = language?.rtl ? arabicFontVariants : englishFontVariants
+  const themeWithFonts = {
+    ...currentTheme,
+    fonts: configureFonts({
+      config: fontConfigs
+    })
+  }
+
+  if (!loading) {
+    return (
+      <OverlayLoader />
+    )
+  }
+
+  if(localesInit){
+    return (
+      <OverlayLoader />
+    )
+  }
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <PaperProvider theme={currentTheme}>
-        <NavigationContainer theme={currentTheme}>
-          <Stack.Navigator>
-            <Stack.Screen name="Home" component={HomeScreen} />
-            <Stack.Screen name="Details" component={DetailsScreen} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </PaperProvider>
+      <LocalizationContext.Provider value={{ ...language, onChangeLanguage  }}>
+        <PaperProvider theme={themeWithFonts}>
+          <NavigationContainer theme={themeWithFonts}>
+            <Stack.Navigator>
+              <Stack.Screen name="Home" component={HomeScreen} />
+              <Stack.Screen name="Details" component={DetailsScreen} />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </PaperProvider>
+      </LocalizationContext.Provider>
     </GestureHandlerRootView>
   );
 }

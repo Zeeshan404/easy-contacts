@@ -9,8 +9,7 @@ const translations = {
 };
 const i18n = new I18n(translations);
 
-i18n.locale = 'en';
-// i18n.locale = 'en';
+// i18n.locale = 'ur';
 
 // // Set the locale once at the beginning of your app.
 // i18n.locale = Localization.locale;
@@ -24,6 +23,34 @@ const _T = (key) => {
     return i18n.t(key)
 }
 
+const rtlLocaleMap = {
+    'ae': true, // Avestan
+    'ar': true, // Arabic
+    'arc': true, // Aramaic
+    'bcc': true, // Southern Balochi
+    'bqi': true, // Bakthiari
+    'ckb': true, // Sorani
+    'dv': true, // Dhivehi
+    'fa': true, 'far': true, // Persian
+    'glk': true, // Gilaki
+    'he': true, 'iw': true, // Hebrew
+    'khw': true, // Khowar
+    'ks': true, // Kashmiri
+    'ku': true, // Kurdish
+    'mzn': true, // Mazanderani
+    'nqo': true, // N'Ko
+    'pnb': true, // Western Punjabi
+    'ps': true, // Pashto
+    'sd': true, // Sindhi
+    'ug': true, // Uyghur
+    'ur': true, // Urdu
+    'yi': true // Yiddish
+};
+  
+const isLocaleRTL = locale => Boolean(rtlLocaleMap[locale]);
+
 export {
-    _T
+    _T,
+    i18n,
+    isLocaleRTL
 }
