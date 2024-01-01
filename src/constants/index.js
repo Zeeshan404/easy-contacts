@@ -24,6 +24,7 @@ import {
     NotoNaskhArabic_600SemiBold, 
     NotoNaskhArabic_700Bold
 } from '@expo-google-fonts/noto-naskh-arabic'
+import { Platform } from 'react-native';
 
 export const urduFonts = {
     'uRegular': {
@@ -52,23 +53,28 @@ export const urduFonts = {
 export const arabicFonts = {
     'aRegular': {
         family : 'aRegular', 
-        asset : NotoNaskhArabic_400Regular
+        // asset : NotoNaskhArabic_400Regular
+        asset : NotoNastaliqUrdu_400Regular
     },
     'aMedium': {
         family : 'aMedium', 
-        asset : NotoNaskhArabic_500Medium
+        // asset : NotoNaskhArabic_500Medium
+        asset : NotoNastaliqUrdu_500Medium
     },
     'aBold': {
         family : 'aBold', 
-        asset : NotoNaskhArabic_600SemiBold
+        // asset : NotoNaskhArabic_600SemiBold
+        asset : NotoNastaliqUrdu_600SemiBold
     },
     'aBlack': {
         family : 'aBlack', 
-        asset : NotoNaskhArabic_700Bold
+        // asset : NotoNaskhArabic_700Bold
+        asset : NotoNastaliqUrdu_700Bold
     },
     'aThin': {
         family : 'aThin', 
-        asset : NotoNaskhArabic_400Regular
+        // asset : NotoNaskhArabic_400Regular
+        asset : NotoNastaliqUrdu_400Regular
     },
 }
 
@@ -96,49 +102,242 @@ export const englishFonts = {
 }
 
 export const englishFontVariants = {
-    black: {
-        fontFamily: englishFonts.eBlack.family,
-        // fontSize: 57,
+    "displayLarge": {
+        "fontFamily": englishFonts.eBlack.family,
+        "letterSpacing": 0,
+        "fontWeight": "400",
+        "lineHeight": 64,
+        "fontSize": 57
     },
-    bold: {
-        fontFamily: englishFonts.eBold.family,
-        // fontSize: 32,
+    "displayMedium": {
+        "fontFamily": englishFonts.eBlack.family,
+        "letterSpacing": 0,
+        "fontWeight": "400",
+        "lineHeight": 52,
+        "fontSize": 45
     },
-    medium: {
-        fontFamily: englishFonts.eMedium.family,
-        // fontSize: 22,
+    "displaySmall": {
+        "fontFamily": englishFonts.eBlack.family,
+        "letterSpacing": 0,
+        "fontWeight": "400",
+        "lineHeight": 44,
+        "fontSize": 36
     },
-    regular: {
-        fontFamily: englishFonts.eRegular.family,
-        // fontSize: 16,
+
+
+    "headlineLarge": {
+        "fontFamily": englishFonts.eBold.family,
+        "letterSpacing": 0,
+        "fontWeight": "400",
+        "lineHeight": 40,
+        "fontSize": 32
     },
-    thin : {
-        fontFamily: englishFonts.eThin.family,
-        // fontSize: 16,  
+    "headlineMedium": {
+        "fontFamily": englishFonts.eBold.family,
+        "letterSpacing": 0,
+        "fontWeight": "400",
+        "lineHeight": 36,
+        "fontSize": 28
+    },
+    "headlineSmall": {
+        "fontFamily": englishFonts.eBold.family,
+        "letterSpacing": 0,
+        "fontWeight": "400",
+        "lineHeight": 32,
+        "fontSize": 24
+    },
+
+
+    "titleLarge": {
+        "fontFamily": englishFonts.eMedium.family,
+        "letterSpacing": 0,
+        "fontWeight": "400",
+        "lineHeight": 28,
+        "fontSize": 22
+    },
+    "titleMedium": {
+        "fontFamily": englishFonts.eMedium.family,
+        "letterSpacing": 0.15,
+        "fontWeight": "500",
+        "lineHeight": 24,
+        "fontSize": 16
+    },
+    "titleSmall": {
+        "fontFamily": englishFonts.eMedium.family,
+        "letterSpacing": 0.1,
+        "fontWeight": "500",
+        "lineHeight": 20,
+        "fontSize": 14
+    },
+
+    "labelLarge": {
+        "fontFamily": englishFonts.eMedium.family,
+        "letterSpacing": 0.1,
+        "fontWeight": "500",
+        "lineHeight": 20,
+        "fontSize": 14
+    },
+    "labelMedium": {
+        "fontFamily": englishFonts.eMedium.family,
+        "letterSpacing": 0.5,
+        "fontWeight": "500",
+        "lineHeight": 16,
+        "fontSize": 12
+    },
+    "labelSmall": {
+        "fontFamily": englishFonts.eMedium.family,
+        "letterSpacing": 0.5,
+        "fontWeight": "500",
+        "lineHeight": 16,
+        "fontSize": 11
+    },
+
+    "bodyLarge": {
+        "fontFamily": englishFonts.eRegular.family,
+        "letterSpacing": 0.15,
+        "fontWeight": "400",
+        "lineHeight": 24,
+        "fontSize": 16
+    },
+    "bodyMedium": {
+        "fontFamily": englishFonts.eRegular.family,
+        "letterSpacing": 0.25,
+        "fontWeight": "400",
+        "lineHeight": 20,
+        "fontSize": 14
+    },
+    "bodySmall": {
+        "fontFamily": englishFonts.eRegular.family,
+        "letterSpacing": 0.4,
+        "fontWeight": "400",
+        "lineHeight": 16,
+        "fontSize": 12
+    },
+
+    "default": {
+        // "fontFamily": "sans-serif",
+        "letterSpacing": 0,
+        "fontWeight": "400"
+    }
+    // black: {
+    //     fontFamily: englishFonts.eBlack.family,
+    //     // fontSize: 57,
+    // },
+    // bold: {
+    //     fontFamily: englishFonts.eBold.family,
+    //     // fontSize: 32,
+    // },
+    // medium: {
+    //     fontFamily: englishFonts.eMedium.family,
+    //     // fontSize: 22,
+    // },
+    // regular: {
+    //     fontFamily: englishFonts.eRegular.family,
+    //     // fontSize: 16,
+    // },
+    // thin : {
+    //     fontFamily: englishFonts.eThin.family,
+    //     // fontSize: 16,  
+    // }
+}
+
+const fontStyles = (fontSize)=>{
+    return {
+        fontSize : fontSize, 
+        letterSpacing: 0,
+        lineHeight : Platform.select({
+            'android': fontSize * 2.5, 
+            "ios": 0
+        }),
     }
 }
 
 export const arabicFontVariants = {
-    black: {
-        fontFamily: arabicFonts.aBlack.family,
-        // fontSize: 57,
+    "displayLarge": {
+        "fontFamily": arabicFonts.aBlack.family,
+        ...fontStyles(57)
     },
-    bold: {
-        fontFamily: arabicFonts.aBold.family,
-        // fontSize: 32,
+    "displayMedium": {
+        "fontFamily": arabicFonts.aBlack.family,
+        ...fontStyles(45)
     },
-    medium: {
-        fontFamily: arabicFonts.aMedium.family,
-        // fontSize: 22,
+    "displaySmall": {
+        "fontFamily": arabicFonts.aBlack.family,
+        ...fontStyles(36)
     },
-    regular: {
-        fontFamily: arabicFonts.aRegular.family,
-        // fontSize: 16,
+
+    "headlineLarge": {
+        "fontFamily": arabicFonts.aBold.family,
+        ...fontStyles(32)
     },
-    thin : {
-        fontFamily: arabicFonts.aThin.family,
-        // fontSize: 12, 
-    }
+    "headlineMedium": {
+        "fontFamily": arabicFonts.aBold.family,
+        
+        ...fontStyles(28)
+    },
+    "headlineSmall": {
+        "fontFamily": arabicFonts.aBold.family,
+        ...fontStyles(24)
+    },
+
+    "titleLarge": {
+        "fontFamily": arabicFonts.aMedium.family,
+        ...fontStyles(22)
+    },
+    "titleMedium": {
+        "fontFamily": arabicFonts.aMedium.family,
+        ...fontStyles(16)
+    },
+    "titleSmall": {
+        "fontFamily": arabicFonts.aMedium.family,
+        ...fontStyles(14)
+    },
+
+    "labelLarge": {
+        "fontFamily": arabicFonts.aRegular.family,
+        ...fontStyles(14)
+    },
+    "labelMedium": {
+        "fontFamily": arabicFonts.aRegular.family,
+        ...fontStyles(12)
+    },
+    "labelSmall": {
+        "fontFamily": arabicFonts.aRegular.family,
+        ...fontStyles(11)
+    },
+
+    "bodyLarge": {
+        "fontFamily": arabicFonts.aThin.family,
+        ...fontStyles(16)
+    },
+    "bodyMedium": {
+        "fontFamily": arabicFonts.aThin.family,
+        ...fontStyles(14)
+    },
+    "bodySmall": {
+        "fontFamily": arabicFonts.aThin.family,
+        ...fontStyles(12)
+    },
+    // black: {
+    //     fontFamily: arabicFonts.aBlack.family,
+    //     // fontSize: 57,
+    // },
+    // bold: {
+    //     fontFamily: arabicFonts.aBold.family,
+    //     // fontSize: 32,
+    // },
+    // medium: {
+    //     fontFamily: arabicFonts.aMedium.family,
+    //     // fontSize: 22,
+    // },
+    // regular: {
+    //     fontFamily: arabicFonts.aRegular.family,
+    //     // fontSize: 16,
+    // },
+    // thin : {
+    //     fontFamily: arabicFonts.aThin.family,
+    //     // fontSize: 12, 
+    // }
 }
 
 export const urduFontVariants = {
