@@ -1,18 +1,57 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { Platform, StyleSheet, View } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Text, BottomNavigation } from 'react-native-paper';
-import Icon from '@expo/vector-icons/MaterialCommunityIcons';
+import { getHeaderTitle } from '@react-navigation/elements';
 import { CommonActions } from '@react-navigation/native';
 
+import { Text, BottomNavigation, Appbar, Menu, Divider, Button, IconButton, MD3Colors, useTheme, TouchableRipple } from 'react-native-paper';
+import Icon from '@expo/vector-icons/MaterialCommunityIcons';
+import { _T } from './locales';
+
+const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
+
+
+const CustomNavigationBar = ({ navigation, route, options, back }) => {
+    const [visible, setVisible] = React.useState(false);
+    const theme = useTheme()
+
+    const openMenu = () => setVisible(true);
+    const closeMenu = () => setVisible(false);
+
+    const title = getHeaderTitle(options, route.name);
+
+
+    return (
+        <Appbar.Header elevated>
+            {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
+             <Appbar.Content title={title != "" ? <Text variant="titleLarge">{title}</Text> : null}>
+             </Appbar.Content>
+             {/* <Appbar.Action icon={'cog'} onPress={openMenu}/> */}
+
+            <Menu
+                visible={visible}
+                onDismiss={closeMenu}
+                anchor={
+                    <Appbar.Action icon={MORE_ICON} onPress={openMenu}/>
+                }>
+                 <Menu.Item leadingIcon="cog" onPress={() => {}} title="Settings" />
+                <Menu.Item onPress={() => { }} title="Item 2" />
+                <Divider />
+                <Menu.Item onPress={() => { }} title="Item 3" />
+            </Menu>
+        </Appbar.Header>
+    );
+}
 
 const Tab = createBottomTabNavigator();
 
 const Root = () => {
+
+    // return null
     return (
         <Tab.Navigator
             screenOptions={{
-                headerShown: false,
+                header: (props) => <CustomNavigationBar {...props} />,
             }}
             tabBar={({ navigation, state, descriptors, insets }) => (
                 <BottomNavigation.Bar
@@ -60,9 +99,9 @@ const Root = () => {
                 name="Home"
                 component={HomeScreen}
                 options={{
-                    tabBarLabel: 'Home',
+                    tabBarLabel: _T("all"),
                     tabBarIcon: ({ color, size }) => {
-                        return <Icon name="home" size={size} color={color} />;
+                        return <Icon name="contacts" size={size} color={color} />;
                     },
                 }}
             />
@@ -70,9 +109,9 @@ const Root = () => {
                 name="Settings"
                 component={SettingsScreen}
                 options={{
-                    tabBarLabel: 'Settings',
+                    tabBarLabel: _T("favorites"),
                     tabBarIcon: ({ color, size }) => {
-                        return <Icon name="cog" size={size} color={color} />;
+                        return <Icon name="star-four-points" size={size} color={color} />;
                     },
                 }}
             />
@@ -85,7 +124,7 @@ export default Root
 function HomeScreen() {
     return (
         <View style={styles.container}>
-            <Text variant="headlineMedium">Home!</Text>
+        <Button onPress={()=>{}} mode="elevated">Home</Button>
         </View>
     );
 }
@@ -93,7 +132,7 @@ function HomeScreen() {
 function SettingsScreen() {
     return (
         <View style={styles.container}>
-            <Text variant="headlineMedium">Settings!</Text>
+            <Text variant="displayLarge">Settings!</Text>
         </View>
     );
 }
@@ -105,3 +144,5 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
 });
+
+

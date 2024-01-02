@@ -1193,6 +1193,11 @@
   dependencies:
     "@types/hammerjs" "^2.0.36"
 
+"@expo-google-fonts/exo@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/exo/-/exo-0.2.3.tgz#141ec3d4c8d961fe314c7bed31f69f4bf9627913"
+  integrity sha512-Z9VY9xoOh3Pf2hfcyOMDx93w18sMmaQmM/JhEZ5na14h/frN8zC+CDNC09+deTSB7lpRrmoXt9aT8bHqqczZyA==
+
 "@expo-google-fonts/lato@^0.2.3":
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/@expo-google-fonts/lato/-/lato-0.2.3.tgz#32456b5c49d9f84d2b22ecfa8f50027555439e9c"
@@ -1207,6 +1212,16 @@
   version "0.2.3"
   resolved "https://registry.yarnpkg.com/@expo-google-fonts/noto-nastaliq-urdu/-/noto-nastaliq-urdu-0.2.3.tgz#8204baa6132c1b13da697b54a2b190dc5348fb2b"
   integrity sha512-D8O34027gGWMsca+t4QFy+dCPXNkWuycMhxQlyPpqUa960FjRB9AvNTUImseXLWp9dK6Hok7ruv4Y0s2fsKV5w==
+
+"@expo-google-fonts/poppins@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/poppins/-/poppins-0.2.3.tgz#807fc1bf58948c32ddfb9c67f7329ff16cc78d14"
+  integrity sha512-PXkur1ZY/puy1PwVFYPJx8qiI3dtBzC2ig1bo53swCt7/sI7krCGYRO6hLBNp15M0kcNh2J4cCR9ZQyFxsving==
+
+"@expo-google-fonts/salsa@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/salsa/-/salsa-0.2.3.tgz#1de671412a106a9c8d7ce09a5bd3bc56c2ddb1a3"
+  integrity sha512-H0GK0IXZO98eewp+XfQ0j5136hI75MC/DIJxDspoy2EtPHBnk9diuZZzd7nMLqrPKyx2QcwOkXD8dy0JODSTyQ==
 
 "@expo/bunyan@4.0.0", "@expo/bunyan@^4.0.0":
   version "4.0.0"
@@ -3324,10 +3339,10 @@ expo-updates-interface@~0.10.0:
   resolved "https://registry.yarnpkg.com/expo-updates-interface/-/expo-updates-interface-0.10.1.tgz#cab075641cd381718ccd9264bf133dc393430a44"
   integrity sha512-I6JMR7EgjXwckrydDmrkBEX/iw750dcqpzQVsjznYWfi0HTEOxajLHB90fBFqQkUV5i5s4Fd3hYQ1Cn0oMzUbA==
 
-expo-updates@~0.18.18:
-  version "0.18.18"
-  resolved "https://registry.yarnpkg.com/expo-updates/-/expo-updates-0.18.18.tgz#6650a144c48f5831b6e03f413a4599d47acca97d"
-  integrity sha512-j9I/vCepUwJ2ZfXsqy5wG+IxXAR05+uiiPABDP9fd++09zt/r2H97abyl5sWaR1h4/0Z9wxXtI0ZssVdDXPE8A==
+expo-updates@~0.18.19:
+  version "0.18.19"
+  resolved "https://registry.yarnpkg.com/expo-updates/-/expo-updates-0.18.19.tgz#40a69ac25f6fcdde7d9ee76b5a5e4e73eb6cd25d"
+  integrity sha512-dakYQ7XhZtBKMLcim08wum108ZUQcNigurijb/6PKdg3QHn21IzOr/27n6x54DctcoW8w1B8w8y1Xw2svVsx4w==
   dependencies:
     "@expo/code-signing-certificates" "0.0.5"
     "@expo/config" "~8.1.0"

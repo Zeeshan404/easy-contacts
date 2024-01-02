@@ -24,6 +24,30 @@ import {
     NotoNaskhArabic_600SemiBold, 
     NotoNaskhArabic_700Bold
 } from '@expo-google-fonts/noto-naskh-arabic'
+import {
+    Exo_100Thin,
+    Exo_200ExtraLight, 
+    Exo_300Light, 
+    Exo_400Regular, 
+    Exo_500Medium, 
+    Exo_600SemiBold,
+    Exo_700Bold, 
+    Exo_800ExtraBold, 
+    Exo_900Black, 
+} from '@expo-google-fonts/exo'
+
+import {
+    Poppins_100Thin, 
+    Poppins_200ExtraLight, 
+    Poppins_300Light, 
+    Poppins_400Regular, 
+    Poppins_500Medium, 
+    Poppins_600SemiBold, 
+    Poppins_700Bold, 
+    Poppins_800ExtraBold,
+    Poppins_900Black
+} from "@expo-google-fonts/poppins"
+
 import { Platform } from 'react-native';
 
 export const urduFonts = {
@@ -81,23 +105,33 @@ export const arabicFonts = {
 export const englishFonts = {
     'eThin': {
         family : 'eThin', 
-        asset : Lato_100Thin
+        // asset : Lato_100Thin
+        asset : Exo_300Light
+        // asset : Poppins_300Light
     },
     'eMedium': {
         family : 'eMedium', 
-        asset : Lato_400Regular
+        // asset : Lato_400Regular
+        asset : Exo_500Medium
+        // asset : Poppins_500Medium
     },
     'eRegular': {
         family : 'eRegular', 
-        asset : Lato_300Light
+        // asset : Lato_300Light
+        asset : Exo_400Regular
+        // asset : Poppins_400Regular
     },
     'eBold': {
         family : 'eBold', 
-        asset : Lato_700Bold
+        // asset : Lato_700Bold
+        asset : Exo_700Bold
+        // asset : Poppins_700Bold
     },
     'eBlack': {
         family : 'eBlack', 
-        asset : Lato_900Black
+        // asset : Lato_900Black
+        asset : Exo_900Black
+        // asset : Poppins_800ExtraBold
     },
 }
 
@@ -193,21 +227,21 @@ export const englishFontVariants = {
     },
 
     "bodyLarge": {
-        "fontFamily": englishFonts.eRegular.family,
+        "fontFamily": englishFonts.eThin.family,
         "letterSpacing": 0.15,
         "fontWeight": "400",
         "lineHeight": 24,
         "fontSize": 16
     },
     "bodyMedium": {
-        "fontFamily": englishFonts.eRegular.family,
+        "fontFamily": englishFonts.eThin.family,
         "letterSpacing": 0.25,
         "fontWeight": "400",
         "lineHeight": 20,
         "fontSize": 14
     },
     "bodySmall": {
-        "fontFamily": englishFonts.eRegular.family,
+        "fontFamily": englishFonts.eThin.family,
         "letterSpacing": 0.4,
         "fontWeight": "400",
         "lineHeight": 16,
@@ -370,48 +404,48 @@ export const CombinedDefaultTheme = {
     colors: {
         ...MD3LightTheme.colors,
         ...LightTheme.colors,
-        // ...{
-        //     "primary": "rgb(0, 104, 116)",
-        //     "onPrimary": "rgb(255, 255, 255)",
-        //     "primaryContainer": "rgb(151, 240, 255)",
-        //     "onPrimaryContainer": "rgb(0, 31, 36)",
-        //     "secondary": "rgb(74, 98, 103)",
-        //     "onSecondary": "rgb(255, 255, 255)",
-        //     "secondaryContainer": "rgb(205, 231, 236)",
-        //     "onSecondaryContainer": "rgb(5, 31, 35)",
-        //     "tertiary": "rgb(82, 94, 125)",
-        //     "onTertiary": "rgb(255, 255, 255)",
-        //     "tertiaryContainer": "rgb(218, 226, 255)",
-        //     "onTertiaryContainer": "rgb(14, 27, 55)",
-        //     "error": "rgb(186, 26, 26)",
-        //     "onError": "rgb(255, 255, 255)",
-        //     "errorContainer": "rgb(255, 218, 214)",
-        //     "onErrorContainer": "rgb(65, 0, 2)",
-        //     "background": "rgb(250, 253, 253)",
-        //     "onBackground": "rgb(25, 28, 29)",
-        //     "surface": "rgb(250, 253, 253)",
-        //     "onSurface": "rgb(25, 28, 29)",
-        //     "surfaceVariant": "rgb(219, 228, 230)",
-        //     "onSurfaceVariant": "rgb(63, 72, 74)",
-        //     "outline": "rgb(111, 121, 122)",
-        //     "outlineVariant": "rgb(191, 200, 202)",
-        //     "shadow": "rgb(0, 0, 0)",
-        //     "scrim": "rgb(0, 0, 0)",
-        //     "inverseSurface": "rgb(46, 49, 50)",
-        //     "inverseOnSurface": "rgb(239, 241, 241)",
-        //     "inversePrimary": "rgb(79, 216, 235)",
-        //     "elevation": {
-        //         "level0": "transparent",
-        //         "level1": "rgb(238, 246, 246)",
-        //         "level2": "rgb(230, 241, 242)",
-        //         "level3": "rgb(223, 237, 238)",
-        //         "level4": "rgb(220, 235, 237)",
-        //         "level5": "rgb(215, 232, 234)"
-        //     },
-        //     "surfaceDisabled": "rgba(25, 28, 29, 0.12)",
-        //     "onSurfaceDisabled": "rgba(25, 28, 29, 0.38)",
-        //     "backdrop": "rgba(41, 50, 52, 0.4)"
-        // }
+        ...{
+            "primary": "rgb(0, 104, 116)",
+            "onPrimary": "rgb(255, 255, 255)",
+            "primaryContainer": "rgb(151, 240, 255)",
+            "onPrimaryContainer": "rgb(0, 31, 36)",
+            "secondary": "rgb(74, 98, 103)",
+            "onSecondary": "rgb(255, 255, 255)",
+            "secondaryContainer": "rgb(205, 231, 236)",
+            "onSecondaryContainer": "rgb(5, 31, 35)",
+            "tertiary": "rgb(82, 94, 125)",
+            "onTertiary": "rgb(255, 255, 255)",
+            "tertiaryContainer": "rgb(218, 226, 255)",
+            "onTertiaryContainer": "rgb(14, 27, 55)",
+            "error": "rgb(186, 26, 26)",
+            "onError": "rgb(255, 255, 255)",
+            "errorContainer": "rgb(255, 218, 214)",
+            "onErrorContainer": "rgb(65, 0, 2)",
+            "background": "rgb(250, 253, 253)",
+            "onBackground": "rgb(25, 28, 29)",
+            "surface": "rgb(250, 253, 253)",
+            "onSurface": "rgb(25, 28, 29)",
+            "surfaceVariant": "rgb(219, 228, 230)",
+            "onSurfaceVariant": "rgb(63, 72, 74)",
+            "outline": "rgb(111, 121, 122)",
+            "outlineVariant": "rgb(191, 200, 202)",
+            "shadow": "rgb(0, 0, 0)",
+            "scrim": "rgb(0, 0, 0)",
+            "inverseSurface": "rgb(46, 49, 50)",
+            "inverseOnSurface": "rgb(239, 241, 241)",
+            "inversePrimary": "rgb(79, 216, 235)",
+            "elevation": {
+                "level0": "transparent",
+                "level1": "rgb(238, 246, 246)",
+                "level2": "rgb(230, 241, 242)",
+                "level3": "rgb(223, 237, 238)",
+                "level4": "rgb(220, 235, 237)",
+                "level5": "rgb(215, 232, 234)"
+            },
+            "surfaceDisabled": "rgba(25, 28, 29, 0.12)",
+            "onSurfaceDisabled": "rgba(25, 28, 29, 0.38)",
+            "backdrop": "rgba(41, 50, 52, 0.4)"
+        }
     }
 };
 
@@ -421,48 +455,48 @@ export const CombinedDarkTheme = {
     colors: {
         ...MD3DarkTheme.colors,
         ...DarkTheme.colors,
-        // ...{
-        //     "primary": "rgb(79, 216, 235)",
-        //     "onPrimary": "rgb(0, 54, 61)",
-        //     "primaryContainer": "rgb(0, 79, 88)",
-        //     "onPrimaryContainer": "rgb(151, 240, 255)",
-        //     "secondary": "rgb(177, 203, 208)",
-        //     "onSecondary": "rgb(28, 52, 56)",
-        //     "secondaryContainer": "rgb(51, 75, 79)",
-        //     "onSecondaryContainer": "rgb(205, 231, 236)",
-        //     "tertiary": "rgb(186, 198, 234)",
-        //     "onTertiary": "rgb(36, 48, 77)",
-        //     "tertiaryContainer": "rgb(59, 70, 100)",
-        //     "onTertiaryContainer": "rgb(218, 226, 255)",
-        //     "error": "rgb(255, 180, 171)",
-        //     "onError": "rgb(105, 0, 5)",
-        //     "errorContainer": "rgb(147, 0, 10)",
-        //     "onErrorContainer": "rgb(255, 180, 171)",
-        //     "background": "rgb(25, 28, 29)",
-        //     "onBackground": "rgb(225, 227, 227)",
-        //     "surface": "rgb(25, 28, 29)",
-        //     "onSurface": "rgb(225, 227, 227)",
-        //     "surfaceVariant": "rgb(63, 72, 74)",
-        //     "onSurfaceVariant": "rgb(191, 200, 202)",
-        //     "outline": "rgb(137, 146, 148)",
-        //     "outlineVariant": "rgb(63, 72, 74)",
-        //     "shadow": "rgb(0, 0, 0)",
-        //     "scrim": "rgb(0, 0, 0)",
-        //     "inverseSurface": "rgb(225, 227, 227)",
-        //     "inverseOnSurface": "rgb(46, 49, 50)",
-        //     "inversePrimary": "rgb(0, 104, 116)",
-        //     "elevation": {
-        //         "level0": "transparent",
-        //         "level1": "rgb(28, 37, 39)",
-        //         "level2": "rgb(29, 43, 46)",
-        //         "level3": "rgb(31, 49, 52)",
-        //         "level4": "rgb(32, 51, 54)",
-        //         "level5": "rgb(33, 54, 58)"
-        //     },
-        //     "surfaceDisabled": "rgba(225, 227, 227, 0.12)",
-        //     "onSurfaceDisabled": "rgba(225, 227, 227, 0.38)",
-        //     "backdrop": "rgba(41, 50, 52, 0.4)"
-        // }
+        ...{
+            "primary": "rgb(79, 216, 235)",
+            "onPrimary": "rgb(0, 54, 61)",
+            "primaryContainer": "rgb(0, 79, 88)",
+            "onPrimaryContainer": "rgb(151, 240, 255)",
+            "secondary": "rgb(177, 203, 208)",
+            "onSecondary": "rgb(28, 52, 56)",
+            "secondaryContainer": "rgb(51, 75, 79)",
+            "onSecondaryContainer": "rgb(205, 231, 236)",
+            "tertiary": "rgb(186, 198, 234)",
+            "onTertiary": "rgb(36, 48, 77)",
+            "tertiaryContainer": "rgb(59, 70, 100)",
+            "onTertiaryContainer": "rgb(218, 226, 255)",
+            "error": "rgb(255, 180, 171)",
+            "onError": "rgb(105, 0, 5)",
+            "errorContainer": "rgb(147, 0, 10)",
+            "onErrorContainer": "rgb(255, 180, 171)",
+            "background": "rgb(25, 28, 29)",
+            "onBackground": "rgb(225, 227, 227)",
+            "surface": "rgb(25, 28, 29)",
+            "onSurface": "rgb(225, 227, 227)",
+            "surfaceVariant": "rgb(63, 72, 74)",
+            "onSurfaceVariant": "rgb(191, 200, 202)",
+            "outline": "rgb(137, 146, 148)",
+            "outlineVariant": "rgb(63, 72, 74)",
+            "shadow": "rgb(0, 0, 0)",
+            "scrim": "rgb(0, 0, 0)",
+            "inverseSurface": "rgb(225, 227, 227)",
+            "inverseOnSurface": "rgb(46, 49, 50)",
+            "inversePrimary": "rgb(0, 104, 116)",
+            "elevation": {
+                "level0": "transparent",
+                "level1": "rgb(28, 37, 39)",
+                "level2": "rgb(29, 43, 46)",
+                "level3": "rgb(31, 49, 52)",
+                "level4": "rgb(32, 51, 54)",
+                "level5": "rgb(33, 54, 58)"
+            },
+            "surfaceDisabled": "rgba(225, 227, 227, 0.12)",
+            "onSurfaceDisabled": "rgba(225, 227, 227, 0.38)",
+            "backdrop": "rgba(41, 50, 52, 0.4)"
+        }
     }
 };
 

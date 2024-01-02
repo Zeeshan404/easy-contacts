@@ -3,5 +3,7 @@
     "name": "Madiha Khalid",
     "name1": "Zeeshan Abbasi",
     "first": "first",
-    "second": "second"
+    "second": "second",
+    "all":"All", 
+    "favorites":"Favorites"
 }
