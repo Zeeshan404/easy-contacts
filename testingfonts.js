@@ -20,23 +20,22 @@ function HomeScreen(props) {
 
   const fontSize = 30
   const innerText = _T("welcome")
+  let restProps = {
+    numberOfLines:0
+  }
+  const styles = {
+    borderWidth: 1,
+  }
 
+  function lineHeight(fontSize) {
+    return parseInt(fontSize * 1.618);
+  }
   return (
     <View style={{ flex: 1, paddingHorizontal:10 }}>
       <View 
         style={{marginBottom:20}}
       />
-      {
-        Object.keys(SupportedLanguages).map((item) => {
-          return (
-            <Button key={item} style={{ marginBottom: 15, width: '100%' }} mode="elevated" onPress={() => { onChangeLanguage(item) }}>
-              <Text variant='black'>
-              {SupportedLanguages[item].nativeName}
-              </Text>
-            </Button>
-          )
-        })
-      }
+      
 
       {/* <Text style={{fontSize:25}} variant='black'>{_T("name")}</Text>
       <Text style={{fontSize:25}} variant='bold'>{_T("name")}</Text>
@@ -44,7 +43,7 @@ function HomeScreen(props) {
       <Text style={{fontSize:25}} variant='regular'>{_T("name")}</Text>
       <Text style={{fontSize:25}} variant='thin'>{_T("name")}</Text> */}
       
-    <ScrollView showsVerticalScrollIndicator={false}>
+    {/* <ScrollView showsVerticalScrollIndicator={false}>
 
       <Text numberOfLines={1}  style={{fontSize:30, fontFamily:'eBlack', borderWidth:1}} >{innerText}</Text>
       <Text numberOfLines={1}  style={{fontSize:30, fontFamily:'eBold', borderWidth:1}} >{innerText}</Text>
@@ -78,7 +77,7 @@ function HomeScreen(props) {
       <Text  numberOfLines={1} style={{ fontSize:fontSize, fontFamily:'uRegular', borderWidth:1, }} >{innerText}</Text>
       <Text  numberOfLines={1} style={{ fontSize:fontSize, fontFamily:'uThin', borderWidth:1, }} >{innerText}</Text>
 
-    </ScrollView>
+    </ScrollView> */}
 
       {/* <Button onPress={()=>{}} mode="elevated" contentStyle={{ height:100, justifyContent:'center'}} style={{margin:20}}>
        <Text variant='black' style={{fontSize:nF(20), backgroundColor:'red', lineHeight:50 }}>
@@ -96,26 +95,84 @@ function HomeScreen(props) {
       <Text style={{borderWidth:1}} variant='bold' >{_T("name")}</Text>
       <Text style={{borderWidth:1}} variant='medium' >{_T("name")}</Text>
       <Text style={{borderWidth:1}} variant='regular' >{_T("name")}</Text>  */}
-      {/* 
-      <Text style={{borderWidth:1, marginBottom:1}} variant="displayLarge">{_T("welcome")}</Text>
-      <Text style={{borderWidth:1, marginBottom:1}} variant="displayMedium">{_T("welcome")}</Text>
-      <Text style={{borderWidth:1, marginBottom:1}} variant="displaySmall">{_T("welcome")}</Text>
+      
+      
 
-      <Text style={{borderWidth:1, marginBottom:1}} variant="headlineLarge">{_T("welcome")}</Text>
-      <Text style={{borderWidth:1, marginBottom:1}} variant="headlineMedium">{_T("welcome")}</Text>
-      <Text style={{borderWidth:1, marginBottom:1}} variant="headlineSmall">{_T("welcome")}</Text>
+      <ScrollView style={{flex:1}}>
+{/* 
+        <Text {...restProps} style={{
+          ...styles,
+           fontFamily: 'uRegular',
+          "letterSpacing": 0,
+          "fontWeight": "400",
+          // "lineHeight": 40,
+          "lineHeight": 0,
+          "fontSize": 32
+        }} >
+          {innerText}
+        </Text> */}
 
-      <Text style={{borderWidth:1, marginBottom:1}} variant="titleLarge">{_T("welcome")}</Text>
-      <Text style={{borderWidth:1, marginBottom:1}} variant="titleMedium">{_T("welcome")}</Text>
-      <Text style={{borderWidth:1, marginBottom:1}} variant="titleSmall">{_T("welcome")}</Text>
+      <Text {...restProps} style={{...styles}} variant="displayLarge">{innerText}</Text>
+      <Text {...restProps} style={{...styles}} variant="displayMedium">{innerText}</Text>
+      <Text {...restProps} style={{...styles}} variant="displaySmall">{innerText}</Text>
 
-      <Text style={{borderWidth:1, marginBottom:1}} variant="bodyLarge">{_T("welcome")}</Text>
-      <Text style={{borderWidth:1, marginBottom:1}} variant="bodyMedium">{_T("welcome")}</Text>
-      <Text style={{borderWidth:1, marginBottom:1}} variant="bodySmall">{_T("welcome")}</Text>
+      <Divider style={{height:40}}/>
 
-      <Text style={{borderWidth:1, marginBottom:1}} variant="labelLarge">{_T("welcome")}</Text>
-      <Text style={{borderWidth:1, marginBottom:1}} variant="labelMedium">{_T("welcome")}</Text>
-      <Text style={{borderWidth:1, marginBottom:1}} variant="labelSmall">{_T("welcome")}</Text> */}
+      <Text {...restProps} style={{...styles}} variant="headlineLarge">{innerText}</Text>
+      <Text {...restProps} style={{...styles}} variant="headlineMedium">{innerText}</Text>
+      <Text {...restProps} style={{...styles}} variant="headlineSmall">{innerText}</Text>
+
+      <Divider style={{height:40}}/>
+
+      <Text {...restProps} style={{...styles}} variant="titleLarge">{innerText}</Text>
+      <Text {...restProps} style={{...styles}} variant="titleMedium">{innerText}</Text>
+      <Text {...restProps} style={{...styles}} variant="titleSmall">{innerText}</Text>
+
+      <Divider style={{height:40}}/>
+
+      <Text {...restProps} style={{...styles}} variant="labelLarge">{innerText}</Text>
+      <Text {...restProps} style={{...styles}} variant="labelMedium">{innerText}</Text>
+      <Text {...restProps} style={{...styles}} variant="labelSmall">{innerText}</Text>
+
+      <Divider style={{height:40}}/>
+      
+      <Text {...restProps} style={{...styles}} variant="bodyLarge">{innerText}</Text>
+      <Text {...restProps} style={{...styles}} variant="bodyMedium">{innerText}</Text>
+      <Text {...restProps} style={{...styles}} variant="bodySmall">{innerText}</Text>
+
+
+  
+      {/* <Text variant="displayLarge">Display Large</Text>
+      <Text variant="displayMedium">Display Medium</Text>
+      <Text variant="displaySmall">Display small</Text>
+
+      <Text variant="headlineLarge">Headline Large</Text>
+      <Text variant="headlineMedium">Headline Medium</Text>
+      <Text variant="headlineSmall">Headline Small</Text>
+
+      <Text variant="titleLarge">Title Large</Text>
+      <Text variant="titleMedium">Title Medium</Text>
+      <Text variant="titleSmall">Title Small</Text>
+
+      <Text variant="labelLarge">Label Large</Text>
+      <Text variant="labelMedium">Label Medium</Text>
+      <Text variant="labelSmall">Label Small</Text>
+
+      <Text variant="bodyLarge">Body Large</Text>
+      <Text variant="bodyMedium">Body Medium</Text>
+      <Text variant="bodySmall">Body Small</Text> */}
+
+      </ScrollView>
+
+      {
+        Object.keys(SupportedLanguages).map((item) => {
+          return (
+            <Button key={item} style={{ marginBottom: 15, width: '100%' }} mode="elevated" onPress={() => { onChangeLanguage(item) }}>
+              {SupportedLanguages[item].nativeName}
+            </Button>
+          )
+        })
+      }
     </View>
   );
 }
@@ -205,7 +262,7 @@ export default function App() {
           <NavigationContainer theme={themeWithFonts}>
             <Stack.Navigator>
               <Stack.Screen name="Home" component={HomeScreen} />
-              <Stack.Screen name="Details" component={DetailsScreen} />
+              {/* <Stack.Screen name="Details" component={DetailsScreen} /> */}
             </Stack.Navigator>
           </NavigationContainer>
         </PaperProvider>
@@ -213,114 +270,3 @@ export default function App() {
     </GestureHandlerRootView>
   );
 }
-
-// {
-//   "compilerOptions": {
-//       "baseUrl": ".",
-//       "paths": {
-//           "locales/*": [
-//               "./src/locales/*"
-//           ],
-//       }
-//   }
-// }
-
-// import React, { useState } from 'react'
-// import { GestureHandlerRootView } from 'react-native-gesture-handler';
-// import { ActivityIndicator, I18nManager, StyleSheet, Text, View, Button } from 'react-native';
-// import { _T } from './src/locales';
-// import useLoadFonts from './src/hooks/useLoadFonts';
-// import { FontFamily } from './src/constants';
-// import * as Updates from 'expo-updates';
-
-
-// export default function App() {
-
-//   const { loading, error } = useLoadFonts()
-//   const [RTL, setRTL] = useState(false)
-
-//   // const shouldBeRTL = false;
-//   // const shouldBeRTL = true;
-//   // if (shouldBeRTL !== I18nManager.isRTL) {
-//   //   I18nManager.allowRTL(shouldBeRTL);
-//   //   I18nManager.forceRTL(shouldBeRTL);
-//   //   Updates.reloadAsync();
-//   // }
-
-//   const toggleShift = () => {
-//     const isRTL = I18nManager.isRTL ? false : true
-//     setRTL(isRTL)
-//     I18nManager.allowRTL(isRTL);
-//     I18nManager.forceRTL(isRTL);
-//     Updates.reloadAsync();
-//   }
-
-//   if (!loading) {
-//     return (
-//       <View style={{ ...StyleSheet.absoluteFillObject, alignItems: 'center', justifyContent: 'center' }}>
-//         <ActivityIndicator
-//           color="black"
-//           size="large"
-//         />
-//       </View>
-//     )
-//   }
-//   // return null
-
-//   return (
-//     <GestureHandlerRootView style={{ flex: 1 }}>
-//       <View style={{ flex: 1, backgroundColor: 'tan', justifyContent: 'center', padding: 10 }}>
-//         <Button
-//           title='Toggle'
-//           onPress={toggleShift}
-//         />
-//         <Text style={{ fontSize: 30, fontFamily: FontFamily.bold1, backgroundColor: 'red' }} > {_T("welcome")} </Text>
-//         <Text style={{ fontSize: 30, fontFamily: FontFamily.bold1, backgroundColor: 'purple' }} >
-//           {I18nManager.isRTL ? 'RTL' : 'LTR'}
-//         </Text>
-//         <View style={{ flexDirection: 'row', backgroundColor: 'pink' }}>
-//           <View style={{ flex: 1, borderRightWidth: 5, borderColor: 'red' }}>
-//             <Text style={{ fontSize: 20, fontFamily: FontFamily.bold1 }} > {_T("first")} </Text>
-//           </View>
-//           <View style={{ flex: 1, borderRightWidth: 5 }}>
-//             <Text style={{ fontSize: 20, fontFamily: FontFamily.bold1 }} > {_T("second")} </Text>
-//           </View>
-//         </View>
-//         <ContactListTile />
-//       </View>
-//     </GestureHandlerRootView>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
-
-
-// // {
-// //   "compilerOptions": {
-// //       "baseUrl": ".",
-// //       "paths": {
-// //           "locales/*": [
-// //               "./src/locales/*"
-// //           ],
-// //       }
-// //   }
-// // }
-
-// const ContactListTile = () => {
-//   return (
-//     <View style={{ height: 100, backgroundColor: 'pink', flexDirection: 'row', alignItems: 'center', paddingHorizontal: 10 }}>
-//       <View style={{ flex: 1, flexDirection: 'row' }}>
-//         <View style={{ height: 50, width: 50, borderRadius: 25, backgroundColor: 'white' }} />
-//         <Text style={{ fontFamily: FontFamily.medium, fontSize: 15, backgroundColor: 'red' }}> {_T("name")}</Text>
-//       </View>
-//       <Text style={{ fontSize: 20, }}>{`>`}</Text>
-//     </View>
-//   )
-// }
