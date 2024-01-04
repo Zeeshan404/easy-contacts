@@ -8,6 +8,8 @@ import { _T } from './locales';
 import { SupportedLanguages } from './constants';
 import LocalizationContext from './context/localization';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import All from './screens/All';
+import Favorites from './screens/Favorites';
 const Tab = createBottomTabNavigator();
 
 const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
@@ -40,14 +42,26 @@ const CustomNavigationBar = ({ navigation, route, options, back }) => {
                 anchor={
                     <Appbar.Action icon={MORE_ICON} onPress={openMenu} />
                 }>
-                <Menu.Item
+
+                {
+                    Object.keys(SupportedLanguages).map((item,index) => {
+                        return (
+                            <Menu.Item
+                                key={index.toString()}
+                                onPress={() => { onChangeLanguage(SupportedLanguages.en.code) }}
+                                title={SupportedLanguages[item].nativeName}
+                            />
+                        )
+                    })
+                }
+                {/* <Menu.Item
                     onPress={() => { onChangeLanguage(SupportedLanguages.en.code) }}
                     title={SupportedLanguages.en.nativeName}
                 />
                 <Menu.Item
                     onPress={() => { onChangeLanguage(SupportedLanguages.ur.code) }}
                     title={SupportedLanguages.ur.nativeName}
-                />
+                /> */}
             </Menu>
         </Appbar.Header>
     );
@@ -104,7 +118,7 @@ const Root = () => {
         >
             <Tab.Screen
                 name={_T("all")}
-                component={HomeScreen}
+                component={All}
                 options={{
                     tabBarLabel: _T("all"),
                     tabBarIcon: ({ color, size }) => {
@@ -114,7 +128,7 @@ const Root = () => {
             />
             <Tab.Screen
                 name={_T("favorites")}
-                component={SettingsScreen}
+                component={Favorites}
                 options={{
                     tabBarLabel: _T("favorites"),
                     tabBarIcon: ({ color, size }) => {
@@ -127,30 +141,6 @@ const Root = () => {
 }
 
 export default Root
-
-function HomeScreen() {
-    return (
-        <View style={styles.container}>
-            <Button onPress={() => { }} mode="elevated">Home</Button>
-        </View>
-    );
-}
-
-function SettingsScreen() {
-    return (
-        <View style={styles.container}>
-            <Text variant="displayLarge">Settings!</Text>
-        </View>
-    );
-}
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-});
 
 // renderLabel={(props) => {
 //     const { route, color, focused } = props
