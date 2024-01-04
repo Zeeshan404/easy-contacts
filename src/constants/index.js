@@ -279,10 +279,10 @@ const fontStyles = (fontSize)=>{
     return {
         fontSize : fontSize, 
         letterSpacing: 0,
-        lineHeight : Platform.select({
-            'android': fontSize * 2.5, 
-            "ios": 0
-        }),
+        // lineHeight : Platform.select({
+        //     'android': fontSize * 2.5, 
+        //     "ios": 0
+        // }),
     }
 }
 
@@ -306,7 +306,6 @@ export const arabicFontVariants = {
     },
     "headlineMedium": {
         "fontFamily": arabicFonts.aBold.family,
-        
         ...fontStyles(28)
     },
     "headlineSmall": {
@@ -341,15 +340,15 @@ export const arabicFontVariants = {
     },
 
     "bodyLarge": {
-        "fontFamily": arabicFonts.aThin.family,
+        "fontFamily": arabicFonts.aRegular.family,
         ...fontStyles(16)
     },
     "bodyMedium": {
-        "fontFamily": arabicFonts.aThin.family,
+        "fontFamily": arabicFonts.aRegular.family,
         ...fontStyles(14)
     },
     "bodySmall": {
-        "fontFamily": arabicFonts.aThin.family,
+        "fontFamily": arabicFonts.aRegular.family,
         ...fontStyles(12)
     },
     // black: {
