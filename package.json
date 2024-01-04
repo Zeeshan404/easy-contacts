@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "postinstall": "patch-package"
   },
   "dependencies": {
     "@expo-google-fonts/exo": "^0.2.3",
@@ -19,6 +20,7 @@
     "@react-navigation/bottom-tabs": "^6.5.11",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
+    "@react-navigation/stack": "^6.3.20",
     "expo": "~49.0.15",
     "expo-font": "~11.4.0",
     "expo-localization": "~14.3.0",
@@ -36,7 +38,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.18.9"
+    "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
+    "patch-package": "^8.0.0",
+    "postinstall-postinstall": "^2.1.0"
   },
   "private": true
 }
