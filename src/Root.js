@@ -10,65 +10,12 @@ import LocalizationContext from './context/localization';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import All from './screens/All';
 import Favorites from './screens/Favorites';
+import CustomNavigationBar from './components/CustomNavigationBar';
 const Tab = createBottomTabNavigator();
 
-const MORE_ICON = Platform.OS === 'ios' ? 'dots-horizontal' : 'dots-vertical';
-
-
-const CustomNavigationBar = ({ navigation, route, options, back }) => {
-    const [visible, setVisible] = React.useState(false);
-    const theme = useTheme()
-    const openMenu = () => setVisible(true);
-    const closeMenu = () => setVisible(false);
-    const title = getHeaderTitle(options, route.name);
-
-    const { locale, rtl, onChangeLanguage } = useContext(LocalizationContext) || {}
-
-    return (
-        <Appbar.Header elevated>
-            {back ? <Appbar.BackAction onPress={navigation.goBack} /> : null}
-            <Appbar.Content title={title != "" ? <Text variant="titleLarge">{title}</Text> : null}>
-            </Appbar.Content>
-            {/* <Appbar.Action 
-                icon="alphabetical-variant"
-                onPress={}
-             />
-             <Appbar.Action 
-                icon="abjad-arabic"
-             /> */}
-            <Menu
-                visible={visible}
-                onDismiss={closeMenu}
-                anchor={
-                    <Appbar.Action icon={MORE_ICON} onPress={openMenu} />
-                }>
-
-                {
-                    Object.keys(SupportedLanguages).map((item,index) => {
-                        return (
-                            <Menu.Item
-                                key={index.toString()}
-                                onPress={() => { onChangeLanguage(SupportedLanguages.en.code) }}
-                                title={SupportedLanguages[item].nativeName}
-                            />
-                        )
-                    })
-                }
-                {/* <Menu.Item
-                    onPress={() => { onChangeLanguage(SupportedLanguages.en.code) }}
-                    title={SupportedLanguages.en.nativeName}
-                />
-                <Menu.Item
-                    onPress={() => { onChangeLanguage(SupportedLanguages.ur.code) }}
-                    title={SupportedLanguages.ur.nativeName}
-                /> */}
-            </Menu>
-        </Appbar.Header>
-    );
-}
-
-
 const Root = () => {
+
+
     return (
         <Tab.Navigator
             screenOptions={{
