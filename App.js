@@ -12,6 +12,7 @@ import LocalizationContext from './src/context/localization';
 import * as Updates from 'expo-updates';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Root from './src/Root';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
   const { loading, error } = useLoadFonts()
@@ -19,9 +20,9 @@ export default function App() {
   const localeContext = useContext(LocalizationContext)
   const [language, setLanguage] = useState(localeContext)
 
-  useEffect(()=>{
+  useEffect(() => {
     init()
-  },[])
+  }, [])
 
   const init = async () => {
     await AsyncStorage.getItem("language").then((json) => {
@@ -30,8 +31,8 @@ export default function App() {
         i18n.locale = value
         const shouldBeRTL = isLocaleRTL(value)
         const langData = {
-          "locale" : value,
-          "rtl" : shouldBeRTL
+          "locale": value,
+          "rtl": shouldBeRTL
         }
         setLanguage(langData)
       }
@@ -44,8 +45,8 @@ export default function App() {
     i18n.locale = value
     const shouldBeRTL = isLocaleRTL(value)
     const langData = {
-      "locale" : value,
-      "rtl" : shouldBeRTL
+      "locale": value,
+      "rtl": shouldBeRTL
     }
     setLanguage(langData)
     if (shouldBeRTL !== I18nManager.isRTL) {
@@ -58,6 +59,7 @@ export default function App() {
 
   const isDarkTheme = false
   const currentTheme = isDarkTheme ? CombinedDarkTheme : CombinedDefaultTheme
+  const barStyle = isDarkTheme ? 'light' : 'dark'
   const fontConfigs = language?.rtl ? arabicFontVariants : englishFontVariants
   const themeWithFonts = {
     ...currentTheme,
@@ -72,21 +74,24 @@ export default function App() {
     )
   }
 
-  if(localesInit){
+  if (localesInit) {
     return (
       <OverlayLoader />
     )
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <LocalizationContext.Provider value={{ ...language, onChangeLanguage  }}>
-        <PaperProvider theme={themeWithFonts}>
-          <NavigationContainer theme={themeWithFonts}>
-            <Root />
-          </NavigationContainer>
-        </PaperProvider>
-      </LocalizationContext.Provider>
-    </GestureHandlerRootView>
+    <>
+      <StatusBar style={barStyle} />
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <LocalizationContext.Provider value={{ ...language, onChangeLanguage }}>
+          <PaperProvider theme={themeWithFonts}>
+            <NavigationContainer theme={themeWithFonts}>
+              <Root />
+            </NavigationContainer>
+          </PaperProvider>
+        </LocalizationContext.Provider>
+      </GestureHandlerRootView>
+    </>
   );
 }
