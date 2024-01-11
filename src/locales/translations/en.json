@@ -6,5 +6,6 @@
     "second": "second",
     "all":"All", 
     "favorites":"Favorites",
-    "settings":"Settings"
+    "settings":"Settings",
+    "no_contact_found":"No contact found"
 }
