@@ -8,12 +8,12 @@ const verticalScale = height / guidelineBaseHeight
 
 // Horizontal scale, width, margin(left, right, horizontal), padding(left, right, horizontal)
 const hScale = (size) => {
-    platformBasedSize(horizontalScale * size)
+    return platformBasedSize(horizontalScale * size)
 }
 
 // Vertical scale, height, margin(top, bottom, vertical), padding(top, bottom, vertical)
 const vScale = (size) => {
-    platformBasedSize(verticalScale * size)
+    return platformBasedSize(verticalScale * size)
 }
 
 const platformBasedSize = (size) => {
@@ -27,7 +27,7 @@ const platformBasedSize = (size) => {
 // Moderate scale, font-size, borderRadius
 const mScale = (size, factor = 0.5) => {
     const newSize = size + (hScale(size) - size) * factor;
-    platformBasedSize(newSize)
+    return platformBasedSize(newSize)
 }
 
 const isTablet = () => {
