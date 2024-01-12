@@ -3,26 +3,26 @@ import { hScale, mScale, vScale } from './dimension'
 
 export const Spacing = {
     'vertical': {
-        ['2xs']: vScale(4),
+        ['xs2']: vScale(4),
         ['xs']: vScale(8),
         ['s']: vScale(12),
         ['m']: vScale(16),
         ['l']: vScale(24),
         ['xl']: vScale(32),
-        ['2xl']: vScale(40),
-        ['3xl']: vScale(48),
-        ['4xl']: vScale(64),
+        ['xl2']: vScale(40),
+        ['xl3']: vScale(48),
+        ['xl4']: vScale(64),
     },
     'horizontal': {
-        ['2xs']: hScale(4),
+        ['xs2']: hScale(4),
         ['xs']: hScale(8),
         ['s']: hScale(12),
         ['m']: hScale(16),
         ['l']: hScale(24),
         ['xl']: hScale(32),
-        ['2xl']: hScale(40),
-        ['3xl']: hScale(48),
-        ['4xl']: hScale(64),
+        ['xl2']: hScale(40),
+        ['xl3']: hScale(48),
+        ['xl4']: hScale(64),
     }
 }
 
