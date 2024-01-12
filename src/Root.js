@@ -1,20 +1,22 @@
-import React, { useContext } from 'react'
-import { Platform, StyleSheet, View } from 'react-native'
-import { getHeaderTitle } from '@react-navigation/elements';
+import React, { useEffect } from 'react'
 import { CommonActions } from '@react-navigation/native';
-import { Text, BottomNavigation, Appbar, Menu, Button, useTheme } from 'react-native-paper';
+import { BottomNavigation } from 'react-native-paper';
 import Icon from '@expo/vector-icons/MaterialCommunityIcons';
 import { _T } from './locales';
-import { SupportedLanguages } from './constants';
-import LocalizationContext from './context/localization';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import All from './screens/All';
 import Favorites from './screens/Favorites';
 import CustomNavigationBar from './components/CustomNavigationBar';
+import { requestAndGetContacts } from './utils/contacts';
+import useContactStore from './stores';
 const Tab = createBottomTabNavigator();
 
 const Root = () => {
+  const contacts = useContactStore((state) => state.contacts)
 
+  useEffect(()=>{
+        // requestAndGetContacts()
+    },[])
 
     return (
         <Tab.Navigator

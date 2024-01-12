@@ -270,3 +270,50 @@ export default function App() {
     </GestureHandlerRootView>
   );
 }
+
+
+
+
+// import { Dimensions, StyleSheet, Text, View } from 'react-native'
+// import React from 'react'
+// import { Spacing } from './src/utils/design'
+// import { SafeAreaView } from 'react-native-safe-area-context'
+// import { useTheme } from 'react-native-paper'
+// import { hScale } from './src/utils/dimension'
+
+// const App = () => {
+
+//   const theme = useTheme()
+  
+
+//   return (
+//     <SafeAreaView style={{flex:1, backgroundColor:'tan', justifyContent:'center', alignItems:'center'}}>
+//       <View style={{ width: 50, height: Spacing.vertical.xs2, backgroundColor:'red' }}></View>
+//       <View style={{ width: 50, height: Spacing.vertical.xs, backgroundColor: 'green' }}></View>
+//       <View style={{ width: 50, height: Spacing.vertical.s, backgroundColor: 'blue' }}></View>
+//       <View style={{ width: 50, height: Spacing.vertical.m, backgroundColor: 'black' }}></View>
+//       <View style={{ width: 50, height: Spacing.vertical.l, backgroundColor: 'white' }}></View>
+//       <View style={{ width: 50, height: Spacing.vertical.xl, backgroundColor: 'pink' }}></View>
+//       <View style={{ width: 50, height: Spacing.vertical.xl2, backgroundColor: 'gold' }}></View>
+//       <View style={{ width: 50, height: Spacing.vertical.xl3, backgroundColor: 'yellow' }}></View>
+//       <View style={{ width: 50, height: Spacing.vertical.xl4, backgroundColor: 'teal' }}></View>
+    
+//       <View style={{ height: 50, width: Spacing.vertical.xs2, backgroundColor:'red' }}></View>
+//       <View style={{ height: 50, width: Spacing.vertical.xs, backgroundColor: 'green' }}></View>
+//       <View style={{ height: 50, width: Spacing.vertical.s, backgroundColor: 'blue' }}></View>
+//       <View style={{ height: 50, width: Spacing.vertical.m, backgroundColor: 'black' }}></View>
+//       <View style={{ height: 50, width: Spacing.vertical.l, backgroundColor: 'white' }}></View>
+//       <View style={{ height: 50, width: Spacing.vertical.xl, backgroundColor: 'pink' }}></View>
+//       <View style={{ height: 50, width: Spacing.vertical.xl2, backgroundColor: 'gold' }}></View>
+//       <View style={{ height: 50, width: Spacing.vertical.xl3, backgroundColor: 'yellow' }}></View>
+//       <View style={{ height: 50, width: Spacing.vertical.xl4, backgroundColor: 'teal' }}></View>
+
+//     </SafeAreaView>
+//   )
+// }
+
+// export default App
+
+// const styles = StyleSheet.create({
+
+// })
