@@ -9,6 +9,7 @@ export const getContacts = async () => {
         fields: [
             ...Object.values(Contacts.Fields)
         ],
+        sort: Contacts.SortTypes.FirstName
     });
 }
 
@@ -16,6 +17,7 @@ export const requestAndGetContacts = async () => {
     const { status } = await requestPermission() 
     if (status === 'granted') {
         const { data } = await getContacts()
+        console.log('data', JSON.stringify(data))
         return data
     }
 }
