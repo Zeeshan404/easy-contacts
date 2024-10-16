@@ -17,7 +17,7 @@ export const requestAndGetContacts = async () => {
     const { status } = await requestPermission() 
     if (status === 'granted') {
         const { data } = await getContacts()
-        console.log('data', JSON.stringify(data))
+        // console.log('data', JSON.stringify(data))
         return data
     }
 }

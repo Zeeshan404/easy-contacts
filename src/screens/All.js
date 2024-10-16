@@ -6,10 +6,10 @@ import useContactStore from '../stores'
 import ContactList from '../components/ContactList'
 
 const All = () => {
-    const contacts = useContactStore((state) => state.contacts)
+    const { contacts } = useContactStore();
     const { colors, fonts } = useTheme()
-
-    // const onlyTen = contacts.slice(0, 40).sort((a,b)=> a.name.charAt(0) > b.name.charAt(0))
+    // console.log('contacts', contacts)
+    // const onlyTen = contacts.slice(0, 10).sort((a,b)=> a.name.charAt(0) > b.name.charAt(0))
     // const onlyTen = contacts.sort((a,b)=> a.id < b.id)
     // console.log('contacts', contacts.length)
     // console.log('onlyTen', onlyTen.length)

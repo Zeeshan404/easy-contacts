@@ -1,9 +1,10 @@
-import { create } from 'zustand';
+import { create } from 'zustand'
 
-const useContactStore = create(set => ({
+const useContactsStore = create((set) => ({
     contacts: [],
-    saveContacts: () => set((data) => ({ contacts: contacts })),
-}));
+    saveContacts: (contacts) => set({ contacts })
+}))
 
-export default useContactStore
 
+
+export default useContactsStore

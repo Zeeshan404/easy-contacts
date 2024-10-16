@@ -6,29 +6,31 @@ import { _T } from '../locales';
 import EmptyComponent from './EmptyComponent';
 import { Spacing } from '../utils/design';
 import ItemSeparator from './ItemSeparator';
+import { FlashList } from '@shopify/flash-list';
 
 const ContactList = ({
     data = []
 }) => {
     const renderItem = ({ item, index }) => {
+        if(item.name === "Usman Abbasi"){
+            console.log(item.image.uri)
+        }
         return (
             <ContactItem
+                image={item?.image?.uri || null}
                 title={item.name}
                 phoneNumber={item.phoneNumbers?.[0]?.number}
             />
         )
     }
     return (
-        <FlatList
-            contentContainerStyle={{ flexGrow: 1, paddingHorizontal:Spacing.horizontal.s12 }}
-            style={{ flex: 1 }}
+        <FlashList
+            contentContainerStyle={{ paddingHorizontal: Spacing.horizontal.s12, paddingVertical:Spacing.horizontal.s12 }}
+            estimatedItemSize={50}
             data={data}
-            keyExtractor={(item, index) => (index.toString())}
             renderItem={renderItem}
-            ItemSeparatorComponent={<ItemSeparator />}
-            ListEmptyComponent={
-                <EmptyComponent message={_T("no_contact_found")} />
-            }
+            ItemSeparatorComponent={ItemSeparator}
+            ListEmptyComponent={<EmptyComponent message={_T("no_contact_found")} />}
         />
     )
 }

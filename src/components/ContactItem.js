@@ -9,7 +9,8 @@ const LeftContent = props => <Avatar.Icon {...props} icon="folder" />
 
 const ContactItem = ({
     title = "",
-    phoneNumber = ""
+    phoneNumber = "",
+    image = null
 }) => {
 
     const { fonts } = useTheme()
@@ -17,24 +18,28 @@ const ContactItem = ({
     return (
         <Card onPress={() => { }} style={{ marginHorizontal: 0 }}>
 
-            {/* <Card.Cover source={{ uri: 'https://picsum.photos/200/300?grayscale' }} /> */}
-
             <Card.Title
                 title={title}
                 titleNumberOfLines={1}
                 subtitle={phoneNumber}
                 subtitleNumberOfLines={1}
                 left={(props) => {
-                    return (
-                        <Avatar.Text
+                    if (image === null) {
+                        return <Avatar.Text
                             {...props}
                             // size={hScale(40)}
                             label={title.charAt(0)}
-                            labelStyle={{ 
+                            labelStyle={{
                                 fontFamily: fonts.bold.fontFamily
                             }}
                         />
-                    )
+                    } else {
+                        return <Avatar.Image
+                            {...props}
+                            source={{uri:image}}
+                            // size={hScale(40)}
+                        />
+                    }
                 }}
             />
             {/* <Card.Content>

@@ -12,13 +12,14 @@ import useContactStore from './stores';
 const Tab = createBottomTabNavigator();
 
 const Root = () => {
-  const { contacts, saveContacts } = useContactStore()
+    const saveContacts  = useContactStore(state => state.saveContacts);
 
     useEffect(() => {
-        // requestAndGetContacts().then((data) => {
-        //     saveContacts(data)
-        // })
+        requestAndGetContacts().then((data) => {
+            saveContacts(data)
+        })
     }, [])
+
 
     return (
         <Tab.Navigator
