@@ -9,16 +9,15 @@ const All = () => {
     const contacts = useContactStore((state) => state.contacts)
     const { colors, fonts } = useTheme()
 
-    const onlyTen = contacts.slice(0, 40).sort((a,b)=> a.name.charAt(0) > b.name.charAt(0))
+    // const onlyTen = contacts.slice(0, 40).sort((a,b)=> a.name.charAt(0) > b.name.charAt(0))
     // const onlyTen = contacts.sort((a,b)=> a.id < b.id)
+    // console.log('contacts', contacts.length)
+    // console.log('onlyTen', onlyTen.length)
     
-
-    console.log('contacts', contacts.length)
-    console.log('onlyTen', onlyTen.length)
     return (
         <View style={[styles.container, { backgroundColor: colors.background }]}>
             <ContactList 
-                data={onlyTen}
+                data={contacts}
             />
         </View>
     )
